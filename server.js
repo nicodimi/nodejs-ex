@@ -3,13 +3,13 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
 
-var fs = require('fs');
-var https = require('https');
+//var fs = require('fs');
+//var https = require('https');
 
-const options = {
-  key: fs.readFileSync("/secrets/tls.key"),
-  cert: fs.readFileSync("/secrets/tls.crt")
-};
+//const options = {
+//  key: fs.readFileSync("/secrets/tls.key"),
+//  cert: fs.readFileSync("/secrets/tls.crt")
+//};
     
 Object.assign=require('object-assign')
 
@@ -130,8 +130,8 @@ initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
 });
 
-//app.listen(port, ip);
-https.createServer(options, app).listen(port);
+app.listen(port, ip);
+//https.createServer(options, app).listen(port);
 console.log('Server running on http://%s:%s', ip, port);
 
 module.exports = app ;
